@@ -1,6 +1,6 @@
 import postgres from "postgres";
 
-const PGSSLMODE = process.env.PGSSLMODE ?? (process.env.VERCEL ? "require" : undefined);
+const PGSSLMODE: "require" | undefined = process.env.PGSSLMODE === "require" ? "require" : process.env.VERCEL ? "require" : undefined;
 
 const sql = postgres({
   host: process.env.PGHOST ?? "localhost",
